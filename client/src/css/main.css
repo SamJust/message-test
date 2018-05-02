@@ -1,0 +1,97 @@
+body{
+  background-color: white;
+  padding: 10px;
+}
+
+.authorize > p {
+  text-align: center;
+  margin-top: 0px;
+}
+
+header{
+  margin-bottom: 20px;
+}
+
+.input > textarea {
+  resize: none;
+  height: 70px;
+  width: 90%;
+  border: 2px solid #182587;
+  border-radius: 10px;
+}
+
+.input {
+  display: flex;
+}
+
+.buttonWrapper > button {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+.buttonWrapper{
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.message{
+  margin-left: 10px;
+  text-align: left;
+  padding-top: 10px;
+}
+
+main{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column-reverse;
+  border: 2px solid #182587;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.authorize{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.authorize > a{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.authorize > a:hover{
+  box-shadow: 2px 2px gray;
+}
+
+.myMessage{
+  cursor: pointer;
+}
+
+.arrow{
+  cursor: pointer;
+}
+
+.button, button{
+  cursor: pointer;
+  border: 1px solid #182587;
+  width: 70px;
+  padding-left: 7px;
+  border-radius: 3px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+
+.button:hover, button:hover{
+  background-color: #182587;
+  color: white;
+}
+
+p{
+  margin: 0px;
+}

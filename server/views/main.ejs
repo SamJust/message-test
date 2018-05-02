@@ -1,0 +1,36 @@
+<!doctype HTML>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Messager</title>
+    <link rel="stylesheet" href="/public/main.css">
+    <script src="https://apis.google.com/js/platform.js?onload=onInit" async defer></script>
+    <script type="text/javascript" src="/public/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <% if(logged) {%>
+        <div class="input">
+          <textarea type="text" placeholder="Enter a message"></textarea>
+          <div class="buttonWrapper">
+            <button type="button" name="button">send</button>
+            <a href="/logof" onclick="signOut();">Sign out</a>
+          </div>
+        </div>
+      <% } else {%>
+        <div class = "authorize">
+          <a href="/login">google+</a>
+          <p>Для добавления и комментирования сообщений выполните вход</p>
+        </div>
+      <%}%>
+    </header>
+
+<%=test()%>
+
+    <main>
+      <div class="message">
+        asdasdasd
+      </div>
+    </main>
+  </body>
+</html>

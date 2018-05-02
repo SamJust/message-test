@@ -1,0 +1,22 @@
+{
+  { "_id" : ObjectId("5ae7152074fba63ac4723292"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "Not random text asd", "date" : 1525093664283, "parentId" : "-1", "__v" : 0 }
+  { "_id" : ObjectId("5ae7169074fba63ac4723293"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "My messages are being sent and edited", "date" : 1525094032344, "parentId" : "-1", "__v" : 0 }
+  { "_id" : ObjectId("5ae716aa74fba63ac4723294"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "New Messages are on top", "date" : 1525094058331, "parentId" : "-1", "__v" : 0 }
+  { "_id" : ObjectId("5ae75cc475b15f15d8405dfc"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "comment under not a random text", "date" : 1525112004717, "parentId" : "5ae7152074fba63ac4723292", "__v" : 0 }
+  { "_id" : ObjectId("5ae75cf675b15f15d8405dfd"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "and another one", "date" : 1525112054065, "parentId" : "5ae75cc475b15f15d8405dfc", "__v" : 0 }
+  { "_id" : ObjectId("5ae75d9075b15f15d8405dfe"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "asd", "date" : 1525112208942, "parentId" : "5ae75cf675b15f15d8405dfd", "__v" : 0 }
+  { "_id" : ObjectId("5ae75d9575b15f15d8405dff"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "asdasdasd", "date" : 1525112213224, "parentId" : "5ae75d9075b15f15d8405dfe", "__v" : 0 }
+  { "_id" : ObjectId("5ae75d9975b15f15d8405e00"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "asdasdasd", "date" : 1525112217175, "parentId" : "5ae75d9575b15f15d8405dff", "__v" : 0 }
+  { "_id" : ObjectId("5ae75da575b15f15d8405e01"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "and one more new message", "date" : 1525112229416, "parentId" : "-1", "__v" : 0 }
+  { "_id" : ObjectId("5ae75ef2d2a3743ca4825a73"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "an one more new comment", "date" : 1525112562408, "parentId" : "5ae75da575b15f15d8405e01", "__v" : 0 }
+  { "_id" : ObjectId("5ae76150d2a3743ca4825a74"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "new comment", "date" : 1525113168585, "parentId" : "5ae75cc475b15f15d8405dfc", "__v" : 0 }
+  { "_id" : ObjectId("5ae84a2ef228f9151ce1cef4"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "Sending new mesage and editing it", "date" : 1525172782009, "parentId" : "-1", "__v" : 0 }
+  { "_id" : ObjectId("5ae84a3af228f9151ce1cef5"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "Commentating it", "date" : 1525172794744, "parentId" : "5ae84a2ef228f9151ce1cef4", "__v" : 0 }
+  { "_id" : ObjectId("5ae84d811223e140dccfef78"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "asdasda", "date" : 1525173633175, "parentId" : "5ae84a2ef228f9151ce1cef4", "__v" : 0 }
+  { "_id" : ObjectId("5ae84d921223e140dccfef79"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "fdsadfadfadfsfsdfsdfs", "date" : 1525173650683, "parentId" : "5ae84a2ef228f9151ce1cef4", "__v" : 0 }
+  { "_id" : ObjectId("5ae84dd81223e140dccfef7a"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "sdfsdfsdf", "date" : 1525173720182, "parentId" : "5ae84a2ef228f9151ce1cef4", "__v" : 0 }
+  { "_id" : ObjectId("5ae84e561223e140dccfef7b"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "asfasdasdadfdfgdsvbdsf dsfg dsfg dsfg sdgresg edf gser", "date" : 1525173846036, "parentId" : "5ae84a2ef228f9151ce1cef4", "__v" : 0 }
+  { "_id" : ObjectId("5ae84e621223e140dccfef7c"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "sdfsefsdfsefsrgesgrdsfg", "date" : 1525173858421, "parentId" : "5ae84e561223e140dccfef7b", "__v" : 0 }
+  { "_id" : ObjectId("5ae84eee1223e140dccfef7d"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "asdasdasdawawdasdawasdawasdawas", "date" : 1525173998113, "parentId" : "5ae716aa74fba63ac4723294", "__v" : 0 }
+  { "_id" : ObjectId("5ae84f571223e140dccfef7e"), "author" : "106684166750091584252", "authorName" : "Sam Just", "message" : "asdasdawdasdawd", "date" : 1525174103968, "parentId" : "5ae716aa74fba63ac4723294", "__v" : 0 }
+}
