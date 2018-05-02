@@ -5,6 +5,9 @@ const Message = mongoose.model('messages');
 module.exports = (app)=>{
   app.get('/messages', (req, res)=>{
     Message.find({}, (err, data)=>{
+      data.sort((a, b)=>{
+        return a.date - b.date;
+      });
       if(req.session.userid && req.session.username){
         res.json({
           logged:true,

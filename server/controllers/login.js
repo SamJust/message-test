@@ -10,9 +10,9 @@ module.exports = (app)=>{
   }); // удаление информации из сессии
 
   app.post('/google', async (req, res)=>{
-    let ticket
-      , payload;
     try {
+      let ticket
+        , payload;
       ticket = await client.verifyIdToken({
           idToken: req.body.token,
           audience: cred.clientID,

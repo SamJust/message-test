@@ -9,7 +9,6 @@ class Logof extends React.Component {
     auth2.disconnect().then(function () {
       console.log('User signed out.');
     });
-
     axios.get('/logof');
   }
 

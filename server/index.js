@@ -16,7 +16,6 @@ app.use('/public', express.static("public"));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(sessions);
-app.set('view engine', 'ejs');
 
 require('./controllers')(app);
 

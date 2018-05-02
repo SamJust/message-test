@@ -4,16 +4,10 @@ import axios from 'axios';
 
 class SendMessage extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      redirect: false
-    }
-  }
-
   sendMessage(){
     if(this.refs.textarea.value.length === 0 )return;
     axios.post('/messages', {message: this.refs.textarea.value}).then((res)=>{
+      this.refs.textarea.value = '';
       this.props.refresh();
     });;
   }

@@ -7,15 +7,7 @@ import {Main as MainComponent} from './components/mainComponent.js';
 import {Logof as LogofComponent} from './components/logofComponent.js';
 
 class App extends Component {
-
-  constructor(props){
-    super(props)
-
-    this.state = {
-      logged: false
-    }
-  }
-
+  
   componentDidMount(){
     this.loadGAPI();
   }
@@ -32,13 +24,6 @@ class App extends Component {
       document.body.appendChild(googleScript);
     };
     document.body.appendChild(script);
-  }
-
-  googleLogout(){
-    let auth2 = window.gapi.auth2.getAuthInstance();
-    auth2.disconnect().then(function () {
-      console.log('User signed out.');
-    });
   }
 
   render() {
