@@ -44,6 +44,7 @@ class Main extends React.Component {
   }
 
   createMessageDiv(item, id){
+    if(item.parentId !== id) return;
     let editButton = (this.state.username === item.authorName)?<div className="editButton button" onClick={this.setEditMessage.bind(this)}>edit</div>:false;
     let commentState = (this.state.logged) ? (this.state.newComment === item._id)?<div>
       <textarea ref="comment" placeholder="Enter new comment"></textarea>
@@ -51,18 +52,20 @@ class Main extends React.Component {
       <div className="button" onClick={this.cancelComment.bind(this)}>cancel</div>
     </div>:<div className="button" onClick={this.newComment.bind(this)}>comment</div> : false;
     let inlineStyles = (id==="-1" || item._id === this.state.latestAddedComment)? {} : { display: 'none' };
+    let date = new Date(item.date).toGMTString();
+    date = date.substring(0, date.length - 4);
 
-    return((item.parentId === id) ? (this.state.editingMessage === item._id)? <div style={inlineStyles} key={item._id} id={item._id} className = 'message'>
+    return((this.state.editingMessage === item._id)? <div style={inlineStyles} key={item._id} id={item._id} className = 'message'>
         <textarea ref='edit' defaultValue={item.message}></textarea>
         <div className="submitButton button" onClick={this.editMessage.bind(this)}>confirm</div>
         <div className="submitButton button" onClick={this.cancelEdit.bind(this)}>cancel</div>
         <span className="glyphicon glyphicon-triangle-left arrow"></span> {this.displayComments(item._id)}
      </div> : <div style={inlineStyles} key={item._id} id={item._id} className = 'message'>
-      <p>{item.authorName} : {item.message}</p>
+      <p>{date} {item.authorName} : {item.message}</p>
       {commentState}
       {editButton}
       <span onClick={this.showComment.bind(this)} className="glyphicon glyphicon-triangle-right arrow"></span>{this.displayComments(item._id)}
-    </div> : false)
+    </div>)
   }
 
   displayComments(id){
