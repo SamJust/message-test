@@ -33,7 +33,7 @@ module.exports = (app)=>{
       date: Date.now(),
       parentId:"-1"
     },(err, data)=>{
-      res.sendStatus(200);
+      res.json(data);
     });
   }); // создане новго сообщения
 
@@ -55,7 +55,7 @@ module.exports = (app)=>{
       date: Date.now(),
       parentId:req.body.parentId
     },(err, data)=>{
-      res.json({newId:data._id});
+      res.json(data);
     });
   }); //создание новго комментария
 };

@@ -8,7 +8,7 @@ class SendMessage extends React.Component {
     if(this.refs.textarea.value.length === 0 )return;
     axios.post('/messages', {message: this.refs.textarea.value}).then((res)=>{
       this.refs.textarea.value = '';
-      this.props.refresh();
+      this.props.addMessage(res.data);
     });;
   }
 

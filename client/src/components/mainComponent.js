@@ -15,31 +15,27 @@ class Main extends React.Component {
       username: '',
       messages: [],
       editingMessage: undefined,
-      newComment: undefined,
-      latestAddedComment: undefined
+      newComment: undefined
     };
   }
 
   componentDidMount () {
     axios.get('/messages').then((res)=>{
+      let modedMessages = this.addDisplayValue(res.data.data);
       let newState = {
         logged: res.data.logged,
-        messages: res.data.data,
+        messages: modedMessages,
         username: res.data.name
       };
       this.setState(newState);
     });
   }
 
-  refresh(id){
-    axios.get('/messages').then((res)=>{
-      let newState = {
-        logged: res.data.logged,
-        messages: res.data.data,
-        username: res.data.name,
-        latestAddedComment: id
-      };
-      this.setState(newState);
+  addDisplayValue(arr){
+    return arr.map((item)=>{
+      if(item.parentId === '-1') item.display = 'block';
+      else item.display = 'none';
+      return item;
     });
   }
 
@@ -51,7 +47,7 @@ class Main extends React.Component {
       <div className="button" onClick={this.postComment.bind(this)}>send</div>
       <div className="button" onClick={this.cancelComment.bind(this)}>cancel</div>
     </div>:<div className="button" onClick={this.newComment.bind(this)}>comment</div> : false;
-    let inlineStyles = (id==="-1" || item._id === this.state.latestAddedComment)? {} : { display: 'none' };
+    let inlineStyles = { display: item.display };
     let date = new Date(item.date).toGMTString();
     date = date.substring(0, date.length - 4);
 
@@ -77,15 +73,24 @@ class Main extends React.Component {
   }
 
   editMessage(event){
-    this.setState({
-      editingMessage:undefined
-    });
     if(this.refs.edit.value.length === 0) return;
     axios.post('/edit', {
       id:this.state.editingMessage,
       newText: this.refs.edit.value
     }).then(()=>{
-      this.refresh();
+      let index = 0;
+      for(let i = 0; i < this.state.messages.length; i++){
+        if(this.state.messages[i]._id === this.state.editingMessage){
+          index = i;
+          break;
+        }
+      }
+      let modedMessages = this.state.messages.slice();
+      modedMessages[index].message = this.refs.edit.value;
+      this.setState({
+        messages: modedMessages,
+        editingMessage: undefined
+      });
     });
   }
 
@@ -116,15 +121,16 @@ class Main extends React.Component {
   }
 
   postComment(event){
-    this.setState({
-      newComment:undefined
-    });
     if(this.refs.comment.value.length === 0) return;
     axios.post('/comment',{
       parentId:event.target.parentNode.parentNode.id,
       message:this.refs.comment.value
     }).then((res)=>{
-      this.refresh(res.data.newId);
+      res.data.display = "block";
+      this.setState({
+        newComment:undefined,
+        messages: [...this.state.messages, res.data]
+      });
     })
   }
 
@@ -134,11 +140,19 @@ class Main extends React.Component {
     event.target.classList.toggle('glyphicon-triangle-right');
     event.target.classList.toggle('glyphicon-triangle-bottom');
     if(children.length === 0 ) return;
-    for(let i = 0; i < children.length; i++){
-      if(children[i].classList.contains('message')){
-        children[i].style.display = newStyle;
-      }
-    }
+    let modedMessages = this.state.messages.map((item)=>{
+      if(event.target.parentNode.id === item.parentId) item.display = newStyle;
+      return item;
+    });
+    this.setState({
+      messages: modedMessages
+    });
+  }
+
+  addMessage(message){
+    this.setState({
+      messages: [...this.state.messages, message]
+    });
   }
 
   render(){
@@ -146,7 +160,7 @@ class Main extends React.Component {
       <div>
         <header>
           {(this.state.logged)?
-            <SendMessageComponent refresh={this.refresh.bind(this)} />
+            <SendMessageComponent addMessage={this.addMessage.bind(this)} />
             :
             <LoginMessageComponent />
           }
