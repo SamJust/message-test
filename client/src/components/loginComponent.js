@@ -12,9 +12,6 @@ class Login extends React.Component {
     };
   }
 
-  componentDidMount(){
-  }
-
   googleLogin(){
     let auth2 = window.gapi.auth2.getAuthInstance();
     auth2.signIn({
